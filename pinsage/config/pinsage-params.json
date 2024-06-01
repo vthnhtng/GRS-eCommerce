@@ -1,0 +1,20 @@
+{
+	"name": "AmazonElectronics",
+	"random_walk_length": 10,
+	"random_walk_restart_prob": 0.5,
+	"num_random_walks": 10,
+	"num_neighbors": 5,
+	"num_layers": 2,
+	"hidden_dims": 64,
+	"batch_size": 64,
+	"num_epochs": 200,
+	"batches_per_epoch": 1024,
+	"num_workers": 3,
+	"lr": 3e-4,
+	"k": 10,
+	"model_dir": "./",
+	"existing_model": null,
+	"id_as_features": true,
+	"eval_freq": 50,
+	"save_freq": 100
+}

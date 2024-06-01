@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UET-SHOPING</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/product/product_detail.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/product/home.css') }}">
+</head>
+
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="{{ url_for('get_categories', page=1)}}"><h1>UET-SHOPING</h1></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ url_for('get_categories', page=1) }}"><h2>Categories</h2></a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ url_for('get_stores', page=1) }}"><h2>Stores</h2></a></li>
+                </ul>
+                <div class="input-group w-50">
+                    <div class="input-group">
+                        <div class="form-outline" data-mdb-input-init>
+                            <input type="search" id="searchInput" name="keyword" class="form-control" placeholder="search product..."/>
+                        </div>                            
+                        <div class="btn btn-primary" onclick="search()" data-mdb-ripple-init>
+                            Search
+                        </div>
+                    </div>
+                </div>
+                {% if 'user_id' in session %}
+                <h2 class="border"> {{session['user_id'][-5:]}} </h2>  
+                <form class="d-flex" action="{{ url_for('logout') }}">
+                    <button class="btn btn-outline-dark" type="submit">
+                        Logout
+                        <span class="badge bg-dark text-white ms-1 rounded-pill"></span>
+                    </button>
+                </form>
+                {% else %}
+
+                <form class="d-flex" action="{{ url_for('login') }}" method="get">
+                    <button class="btn btn-outline-dark" type="submit" >
+                        Login
+                        <span class="badge bg-dark text-white ms-1 rounded-pill"></span>
+                    </button>
+                </form>
+
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+    <!-- Header-->
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">PRODUCT DETAILS</h1>
+            </div>
+        </div>
+    </header>
+    <div class="container mydiv">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="bbb_deals">
+                    <div class="owl-item bbb_deals_item">
+                        <div class="images-container d-flex flex-column justify-content-center align-items-center">
+                            {% for i in product.image_links %}
+                            <div class="bbb_deals_image">
+                                <img src="{{ i }}">
+                            </div>
+                            {% endfor %}
+                            <div class="slider-button-container">
+                                <button class="slider-button prev" onclick="prevSlide()"><i
+                                        class="fas fa-arrow-left"></i></button>
+                                <button class="slider-button" onclick="nextSlide()"><i
+                                        class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="bbb_deals_content">
+                            <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="bbb_deals_item_name">{{product.title}}</div>
+                                    </div>
+                                    <div class="col-md-12"">
+                                        <div class=" bbb_deals_item_price pull-right">${{ product.price }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="bbb_deals_item_category">ASIN: {{ product.asin }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="bbb_deals_item_category">Category: <a href="/category/{{ product.category }}">{{
+                                            product.category }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="bbb_deals_item_category">Store: <a href="/store/{{ product.store }}">{{ product.store
+                                            }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="bbb_deals_item_category">Rating: {{ product.avg_rating }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="bbb_deals_item_category">Rating number: {{ product.rating_number }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                        <div class="row">
+                            <div class="col-md-14">
+                                <div class="bbb_deals_item_description">Description:
+                                    <ul>
+                                        {% for d in product.description %}
+                                        <li>
+                                            <p class="text-left">{{ d }}</p>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-7">
+
+            <div class="container m-t-20">
+                <h1>Similar products recommended for you</h1>
+            </div>
+
+            <div class="container m-t-30">
+                <div class="row">
+                    <!-- recommended products -->
+                    {% for rp in product.get_recommended_products() %}
+                    <div class="col-md-4 padding-0">
+                        <div class="bbb_item">
+                            <div class="bbb_image d-flex flex-column align-items-center justify-content-center"><img
+                                    src="{{ rp.image_links[0] }}" alt=""></div>
+                            <div class="bbb_content">
+                                <div class="bbb_category"><a href="/category/{{ rp.category }}"> {{ rp.category }}</a></div>
+                                <div class="bbb_category"><a href="/store/{{ rp.store }}"> {{ rp.store }}</a></div>
+                                <div class="rating-price">
+                                    <div class="bbb_category">{{ rp.avg_rating }}/5.0</div>
+                                    <div class="bbb_price">${{ rp.price }}</div>
+                                </div>
+                                <div class="bbb_category">{{ rp.rating_number }} ratings</div>
+                                <div class="bbb_name" onmouseover="get_full_title(this)" onmouseleave="hide_full_title(this)">
+                                    <a href="{{ url_for('get_product_detail', asin=rp.asin) }}" class="rp-title">{{ rp.title }}</a>
+                                </div>
+                                <div class="rp-title-overflow"><a href="{{ url_for('get_product_detail', asin=rp.asin) }}">{{ rp.title }}</a></div>
+                            </div>
+                            <div class="bbb_fav"><i class="fas fa-heart"></i></div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- recommended products -->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+    <script src="{{url_for('static', filename='js/product/product_list.js')}}"></script>
+    <script src="{{url_for('static', filename='js/product/product_detail.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
+</body>
+
+</html>

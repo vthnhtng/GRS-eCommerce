@@ -1,0 +1,672 @@
+.mydiv {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.padding-0 {
+    padding-right: 5px;
+    padding-left: 5px
+}
+
+.img-style {
+    margin-left: -11px;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    max-width: 104% !important
+}
+
+.m-t-20 {
+    margin-top: 20px
+}
+
+.m-t-30 {
+    margin-top: 30px
+}
+
+.bbb_background {
+    background-color: #E0E0E0 !important
+}
+
+.trans_200 {
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease
+}
+
+.trans_300 {
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease
+}
+
+.trans_400 {
+    -webkit-transition: all 400ms ease;
+    -moz-transition: all 400ms ease;
+    -ms-transition: all 400ms ease;
+    -o-transition: all 400ms ease;
+    transition: all 400ms ease
+}
+
+.trans_500 {
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease
+}
+
+.fill_height {
+    height: 100%
+}
+
+.super_container {
+    width: 100%;
+    overflow: hidden
+}
+
+.prlx_parent {
+    overflow: hidden
+}
+
+.prlx {
+    height: 130% !important
+}
+
+.nopadding {
+    padding: 0px !important
+}
+
+.button {
+    display: inline-block;
+    background: #0e8ce4;
+    border-radius: 5px;
+    height: 48px;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease
+}
+
+.button a {
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 48px;
+    color: #FFFFFF;
+    padding-left: 35px;
+    padding-right: 35px
+}
+
+.button:hover {
+    opacity: 0.8
+}
+
+.trends {
+    padding-top: 8px;
+    padding-bottom: 0px
+}
+
+.bbb_container {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding-right: 40px
+}
+
+.bbb-div {
+    margin-top: 163px
+}
+
+.bbb_title {
+    padding-right: 50px;
+    font-size: 40px !important;
+    line-height: 1;
+    color: #5967f6
+}
+
+.bbb_text {
+    margin-top: 17px
+}
+
+.bbb_text p:last-child {
+    margin-bottom: 0px
+}
+
+.bbb_slider_nav {
+    margin-top: 27px
+}
+
+.bbb_nav {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 16px;
+    background-color: #2d8ce4
+}
+
+.bbb_nav:last-child {
+    margin-right: 0px
+}
+
+.bbb_nav i {
+    line-height: 36px;
+    color: #fff;
+    font-size: 18px;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease
+}
+
+.bbb_nav:hover i {
+    color: #474747
+}
+
+.bbb_item {
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    padding: 10px;
+    width: 100%;
+    background: #FFFFFF;
+    height: 500px;
+
+    margin-top: 10px;
+
+}
+
+.bbb_image {
+    width: 100%;
+    height: auto
+}
+
+.bbb_image img {
+    width: 100%;
+    max-width: 100% !important;
+    height: 200px;
+}
+
+.bbb_category a {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5)
+}
+
+.bbb_category a:hover {
+    color: #0e8ce4
+}
+
+.bbb_content {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.bbb_name {
+    float: left;
+    margin-top: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 150px;
+}
+
+.rp-title-overflow {
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+    bottom: 120px;
+    left: 20px;
+}
+
+.bbb_name a {
+    font-size: 16px;
+    color: #000000;
+    display: block;
+    line-height: 20px; /* Adjust line height for vertical centering */
+    height: 100%; /* Ensure the link fills the entire height of its parent */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; /* Allow text to wrap */
+}
+
+.bbb_name a:hover {
+    color: #0e8ce4
+}
+
+.bbb_price {
+    font-size: 18px;
+    font-weight: 500;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.bbb_fav {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 36px;
+    height: 36px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+    cursor: pointer
+}
+
+.bbb_fav.active {
+    visibility: visible;
+    opacity: 1
+}
+
+.bbb_fav:hover {
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3)
+}
+
+.bbb_item:hover .bbb_fav {
+    visibility: visible;
+    opacity: 1;
+    top: 18px
+}
+
+.bbb_fav i {
+    display: block;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    color: #cccccc;
+    line-height: 36px;
+    pointer-events: none;
+    z-index: 0;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease
+}
+
+.bbb_fav.active i {
+    color: red
+}
+
+.bbb_item:hover .bbb_fav {
+    visibility: visible;
+    opacity: 1
+}
+
+.bbb_marks {
+    position: absolute;
+    left: 18px;
+    top: 18px
+}
+
+.bbb_mark {
+    display: none;
+    width: 36px;
+    height: 36px;
+    font-size: 10px;
+    font-weight: 500;
+    color: #FFFFFF;
+    border-radius: 50%;
+    line-height: 36px;
+    text-align: center
+}
+
+.bbb_discount {
+    background: #df3b3b
+}
+
+.bbb_item.discount .bbb_discount,
+.bbb_item.is_new .bbb_new {
+    display: block
+}
+
+.bbb_new {
+    background: #0e8ce4
+}
+
+@media only screen and (max-width: 991px) {
+    .bbb_slider_container {
+        margin-top: 15px
+    }
+}
+
+div {
+    display: block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.bbb_deals_featured {
+    width: 100%
+}
+
+.bbb_deals {
+    width: 100%;
+    margin-right: 7%;
+    padding-top: 85px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 58px;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-top: 20px
+}
+
+.bbb_deals_title {
+    position: absolute;
+    top: 27px;
+    left: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000000
+}
+
+.bbb_deals_slider_container {
+    width: 100%
+}
+
+.bbb_deals_item {
+    width: 100% !important
+}
+
+.bbb_deals_image {
+    width: 100%;
+    height: 500px
+}
+
+.bbb_deals_image img {
+    /* width: 100% */
+    width: auto !important;
+    max-width: 100% !important
+}
+
+.bbb_deals_content {
+    margin-top: 33px
+}
+
+.bbb_deals_item_description a {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5)
+}
+
+.bbb_deals_item_price_a {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6)
+}
+
+.bbb_deals_item_name {
+    font-size: 20px;
+    font-weight: 400;
+    color: #000000;
+    text-overflow: ellipsis;
+}
+
+.bbb_deals_item_price {
+    font-size: 24px;
+    font-weight: 500;
+    color: #df3b3b
+}
+
+.available {
+    margin-top: 19px
+}
+
+.available_title {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 400
+}
+
+.available_title span {
+    font-weight: 700
+}
+
+.sold_title {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 400
+}
+
+.sold_title span {
+    font-weight: 700
+}
+
+.available_bar {
+    width: 100%;
+    height: 10px;
+    background: #e8e8e8;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 5px
+}
+
+.available_bar span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 5px;
+    background: #0e8ce4
+}
+
+.bbb_deals_timer {
+    margin-top: 30px
+}
+
+.bbb_deals_timer_title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000000
+}
+
+.bbb_deals_timer_subtitle {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5)
+}
+
+.bbb_deals_timer_content {
+    padding-bottom: 17px
+}
+
+.bbb_deals_timer_box {
+    width: 173px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border: solid 1px #cccccc;
+    border-radius: 5px;
+    margin-right: 1px
+}
+
+.bbb_deals_timer_unit {
+    width: 33.33333333%;
+    font-size: 24px;
+    font-weight: 500;
+    color: #000000;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 3px;
+    padding-bottom: 2px;
+    float: left
+}
+
+.bbb_deals_timer_unit:first-child::after,
+.bbb_deals_timer_unit:nth-child(2)::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right: 0px;
+    width: 1px;
+    height: 25px;
+    background: #e5e5e5;
+    content: ''
+}
+
+.bbb_deals_timer_unit span {
+    position: absolute;
+    display: block;
+    bottom: -22px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    font-size: 8px;
+    color: rgba(0, 0, 0, 0.5);
+    text-transform: uppercase
+}
+
+.bbb_deals_slider_nav_container {
+    position: absolute;
+    top: 20px;
+    right: 40px
+}
+
+.bbb_deals_slider_nav {
+    display: inline-block;
+    cursor: pointer
+}
+
+.bbb_deals_slider_nav i {
+    font-size: 18px;
+    padding: 10px;
+    color: #666666;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease
+}
+
+.bbb_deals_slider_nav:hover i {
+    color: #000000
+}
+
+.bbb_deals_slider_nav:active i {
+    color: #df3b3b
+}
+
+.bbb_deals_slider_prev {
+    margin-right: 4px
+}
+
+@media only screen and (max-width: 1199px) {
+    .bbb_deals_timer_box {
+        width: 150px
+    }
+
+    .bbb_deals_timer_unit {
+        font-size: 20px
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .bbb_deals {
+        width: 100%;
+        margin-right: 0px
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .bbb_deals {
+        padding-left: 15px;
+        padding-right: 15px
+    }
+
+    .bbb_deals_title {
+        left: 15px;
+        font-size: 16px
+    }
+
+    .bbb_deals_slider_nav_container {
+        right: 5px
+    }
+
+    .bbb_deals_item_name,
+    .bbb_deals_item_price {
+        font-size: 20px
+    }
+
+    .bbb_deals_item_category a,
+    .bbb_deals_item_price_a {
+        font-size: 12px
+    }
+
+    .bbb_deals_timer_unit {
+        font-size: 16px
+    }
+}
+
+
+.images-container {
+    position: relative; /* Ensure positioning of absolute buttons relative to this container */
+}
+
+.slider-button-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 1; /* Ensure buttons appear above images */
+}
+
+.slider-button {
+    background-color: rgba(0, 0, 0, 0.5); /* Change the background color as needed */
+    color: white; /* Change the color of the button icon */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.slider-button.prev {
+    order: 1; /* Move previous button to the left */
+}
+
+.slider-button {
+    order: 2; /* Keep next button to the right */
+}
+
+.rating-price {
+    display: flex;
+}

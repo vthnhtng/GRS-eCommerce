@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>UET-SHOPING</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/product/home.css') }}">
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="{{ url_for('get_categories', page=1)}}">UET-SHOPING</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ url_for('get_categories', page=1) }}">Categories</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ url_for('get_stores', page=1) }}">Stores</a></li>
+                    </ul>
+                    <div class="input-group w-50">
+                        <div class="input-group">
+                            <div class="form-outline" data-mdb-input-init>
+                                <input type="search" id="searchInput" name="keyword" class="form-control" placeholder="search categories..."/>
+                            </div>                            
+                            <div class="btn btn-primary" onclick="search()" data-mdb-ripple-init>
+                                Search
+                            </div>
+                        </div>
+                    </div>
+                    {% if 'user_id' in session %}
+                    <h2 class="border"> {{session['user_id'][-5:]}} </h2>  
+                    <form class="d-flex" action="{{ url_for('logout') }}">
+                        <button class="btn btn-outline-dark" type="submit">
+                            Logout
+                            <span class="badge bg-dark text-white ms-1 rounded-pill"></span>
+                        </button>
+                    </form>
+                    {% else %}
+
+                    <form class="d-flex" action="{{ url_for('login') }}" method="get">
+                        <button class="btn btn-outline-dark" type="submit" >
+                            Login
+                            <span class="badge bg-dark text-white ms-1 rounded-pill"></span>
+                        </button>
+                    </form>
+
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">CATEGORIES</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Many categories to explore</p>
+                </div>
+            </div>
+        </header>
+        <!-- For user -->
+        {% if user %}
+            <!-- <h1>{{ user.name }}</h1> -->
+        {% endif %}
+        <!-- Section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                {% if categories|length == 0 %}
+                    <h1>No Categories Founded!</h1>
+                {% endif %}
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    {% for i in range(0, categories|length) %}
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-imimg-top" src="{{ thumb_images[i] }}" style="width: 250px; height: 300px;"/>
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        {% set c = categories[i].strip('"') %}
+                                        <h5 class="fw-bolder">{{ c }}</h5>
+                                        <!-- Product price-->
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/category/{{c|string}}">View products</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% set base_url = current_url.split('/')[2] %}
+            {% set current_page = current_url.split('/')[-1] %}
+            {% set param_value = current_url.split('/')[4] %}
+            {% set param_type = current_url.split('/')[3] %}
+            {% if current_page == "" %}
+                {% set current_page = "1" %}
+                {% set current_url = current_url + current_page%}
+            {% endif %}
+            {% set base_url = current_url.split('/')[:-1] | join('/') %}
+            <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-3">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="{{ base_url }}/1" aria-label="Previous">
+                            <span aria-hidden="true">|&laquo</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        {% set prev_page = current_page|int - 1 %}
+                        {% if prev_page < 1 %}
+                            {% set prev_page = 1 %}
+                        {% endif %}
+                        <a class="page-link" href="{{ base_url}}/{{prev_page|string}}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    {% for p in range(current_page|int - 10, current_page|int) %}
+                        {% if p > 0 %}
+                            {% if p == current_page|int %}
+                                <li class="page-item active"><a class="page-link" href="{{ current_url }}">{{ p }}</a></li>
+                            {% else %}
+                                <li class="page-item"><a class="page-link"
+                                    href="{{ base_url}}/{{p|string}}">{{ p }}</a></li>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    {% for p in range(current_page|int, current_page|int + 10) %}
+                        {% if p <= page_number %}
+                            {% if p == current_page|int %}
+                                <li class="page-item active"><a class="page-link" href="{{ current_url }}">{{ p }}</a></li>
+                            {% else %}
+                                <li class="page-item"><a class="page-link"
+                                    href="{{ base_url}}/{{p|string}}">{{ p }}</a></li>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    <p></p>
+                    <li class="page-item">
+                        {% set next_page = current_page|int + 1 %}
+                        {% if next_page > page_number %}
+                            {% set next_page = page_number %}
+                        {% endif %}
+                        <a class="page-link" href="{{ base_url}}/{{next_page|string}}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="{{ base_url}}/{{page_number|string}}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;|</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Pagination -->
+        </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; UET-KLTN 2024</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{{url_for('static', filename='js/product/search_categories.js')}}"></script>
+    </body>
+</html>
